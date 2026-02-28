@@ -1,0 +1,38 @@
+<div class="dashboard-wrapper">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-brand"><b>
+      🎓 Student Management System</b>
+    </div>
+    
+    <div class="navbar-right">
+      <span class="welcome-text">Student👨‍🎓</span>
+      <button class="btn-logout" (click)="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="dashboard-content">
+    <div class="welcome-card">
+      <h2>Welcome to Student Dashboard</h2>
+      <p>Hello <strong>{{ name }}</strong></p>
+    </div>
+
+    <div class="cards-row">
+      <div class="card">
+        <div class="card-icon">👨‍👦‍👦</div>
+        <div class="card-label">View Profile</div>
+        <div class="card-description">   
+        <p>Check your personal details</p>
+         </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📝</div>
+        <div class="card-label">Edit Profile</div>
+         <div class="card-description">
+            <p>Update your phone & address</p>
+         </div> 
+      </div>
+    </div>
+  </div>
+</div>

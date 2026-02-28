@@ -1,0 +1,54 @@
+<div class="dashboard-wrapper">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <b>🎓 Student Management System</b>
+    </div>
+    <!-- <div class="navbar-center">
+      <span class="nav-item active">Dashboard</span>
+    </div> -->
+    <div class="navbar-right">
+      <span class="welcome-text">Admin🤵</span>
+      <button class="btn-logout" (click)="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="dashboard-content">
+    <div class="welcome-card">
+      <h2>Welcome to Admin Dashboard</h2>
+      <p>Hello <strong>{{ name }}</strong></p>
+    </div>
+
+    <div class="cards-row">
+      <div class="card">
+        <div class="card-icon">✅</div>
+        <div class="card-label">Add Student</div>
+         <div class="card-description">
+            <p>Register a new student</p>
+         </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">👨‍👦‍👦</div>
+        <div class="card-label">View Students</div>
+        <div class="card-description">
+            <p>See all registered students</p>
+         </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📝</div>
+        <div class="card-label">Edit Student</div>
+         <div class="card-description">
+            <p>Update student details</p>
+         </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">❌</div>
+        <div class="card-label">Delete Student</div>
+         <div class="card-description">
+            <p>Remove student records</p>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
