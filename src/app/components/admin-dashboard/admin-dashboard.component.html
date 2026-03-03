@@ -1,54 +1,109 @@
 <div class="dashboard-wrapper">
-  <!-- Navbar -->
+
+  <!-- NAVBAR -->
+
+  <div class="custom-toast" *ngIf="showToast">
+  {{ toastMessage }}
+</div>
   <nav class="navbar">
     <div class="navbar-brand">
       <b>🎓 Student Management System</b>
     </div>
-    <!-- <div class="navbar-center">
-      <span class="nav-item active">Dashboard</span>
-    </div> -->
     <div class="navbar-right">
-      <span class="welcome-text">Admin🤵</span>
+      <span class="welcome-text">Admin 🤵</span>
       <button class="btn-logout" (click)="logout()">Logout</button>
     </div>
   </nav>
 
-  <!-- Page Content -->
   <div class="dashboard-content">
+
+    <!-- Welcome -->
     <div class="welcome-card">
       <h2>Welcome to Admin Dashboard</h2>
       <p>Hello <strong>{{ name }}</strong></p>
     </div>
 
+    <!-- ACTION CARDS -->
     <div class="cards-row">
+
+      <!-- Add Student -->
       <div class="card">
-        <div class="card-icon">✅</div>
-        <div class="card-label">Add Student</div>
-         <div class="card-description">
-            <p>Register a new student</p>
-         </div>
+        <div class="card-icon">➕</div>
+        <button (click)="showAddForm = !showAddForm" class="btn-card">
+          Add Student
+        </button>
       </div>
+
+      <!-- View Students -->
       <div class="card">
-        <div class="card-icon">👨‍👦‍👦</div>
-        <div class="card-label">View Students</div>
-        <div class="card-description">
-            <p>See all registered students</p>
-         </div>
+        <div class="card-icon">👨‍🎓</div>
+        <button (click)="getStudents()" class="btn-card">
+          View Students
+        </button>
       </div>
-      <div class="card">
-        <div class="card-icon">📝</div>
-        <div class="card-label">Edit Student</div>
-         <div class="card-description">
-            <p>Update student details</p>
-         </div>
-      </div>
-      <div class="card">
-        <div class="card-icon">❌</div>
-        <div class="card-label">Delete Student</div>
-         <div class="card-description">
-            <p>Remove student records</p>
-         </div>
-      </div>
+
     </div>
+
+    <!-- ADD STUDENT FORM (Only when clicked) -->
+    <div *ngIf="showAddForm" class="form-box">
+
+      <h3>Add Student</h3>
+
+      <form #studentForm="ngForm" (ngSubmit)="onSubmit(studentForm)">
+
+        <input type="text" name="name" [(ngModel)]="student.name" placeholder="Name" required>
+        <input type="number" name="age" [(ngModel)]="student.age" placeholder="Age" required>
+        <input type="text" name="department" [(ngModel)]="student.department" placeholder="Department" required>
+        <input type="email" name="email" [(ngModel)]="student.email" placeholder="Email" required>
+        <input type="text" name="phone" [(ngModel)]="student.phone" placeholder="Phone" required>
+        <input type="text" name="city" [(ngModel)]="student.city" placeholder="City" required>
+        <input type="text" name="state" [(ngModel)]="student.state" placeholder="State" required>
+        <input type="date" name="dob" [(ngModel)]="student.dob" placeholder="Date of Birth" required>
+
+        <button type="submit">Save</button>
+      </form>
+
+    </div>
+
+    <!-- STUDENT TABLE -->
+    <div *ngIf="showTable && students.length > 0" class="table-box">
+
+      <h3>Student List</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Department</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Date of Birth</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let s of students">
+            <td>{{ s.name }}</td>
+            <td>{{ s.age }}</td>
+            <td>{{ s.department }}</td>
+            <td>{{ s.email }}</td>
+            <td>{{ s.phone }}</td>
+            <td>{{ s.city }}</td>
+            <td>{{ s.state }}</td>
+            <td>{{ s.dob | date:'yyyy-MM-dd' }}</td>
+            <td>
+              <button (click)="editStudent(s)">Edit</button>
+              <button (click)="deleteStudent(s.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
   </div>
 </div>
