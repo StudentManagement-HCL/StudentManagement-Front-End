@@ -11,6 +11,8 @@ import { StudentDashboardComponent } from './components/student-dashboard/studen
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AdminSignupComponent } from './components/admin-signup/admin-signup.component';
 import { StudentSignupComponent } from './components/student-signup/student-signup.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -22,8 +24,9 @@ import { StudentSignupComponent } from './components/student-signup/student-sign
     StudentSignupComponent,
     AdminSignupComponent,   
     StudentSignupComponent
+
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,BrowserAnimationsModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
