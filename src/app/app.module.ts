@@ -12,6 +12,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AdminSignupComponent } from './components/admin-signup/admin-signup.component';
 import { StudentSignupComponent } from './components/student-signup/student-signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AdminSignupComponent,
     StudentSignupComponent,
     AdminSignupComponent,   
-    StudentSignupComponent
+    StudentSignupComponent, AdminProfileComponent
 
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,BrowserAnimationsModule],
