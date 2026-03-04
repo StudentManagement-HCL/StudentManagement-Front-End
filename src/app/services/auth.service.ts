@@ -7,28 +7,28 @@ import { LoginRequest, LoginResponse } from '../models/auth';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private baseUrl = 'http://localhost:5035/api/auth';
+  private baseUrl = 'http://localhost:5035/api/Auth';
 
   constructor(private http: HttpClient, private router: Router) {}
 
   adminLogin(credentials: LoginRequest): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${this.baseUrl}/admin/login`, credentials).pipe(
-      tap(res => this.storeToken(res))
-    );
+    return this.http
+      .post<LoginResponse>(`${this.baseUrl}/admin/login`, credentials)
+      .pipe(tap((res) => this.storeToken(res)));
   }
 
   studentLogin(credentials: LoginRequest): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${this.baseUrl}/student/login`, credentials).pipe(
-      tap(res => this.storeToken(res))
-    );
+    return this.http
+      .post<LoginResponse>(`${this.baseUrl}/student/login`, credentials)
+      .pipe(tap((res) => this.storeToken(res)));
   }
-adminRegister(data: any): Observable<any> {
-  return this.http.post(`${this.baseUrl}/admin/register`, data);
-}
+  adminRegister(data: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/admin/register`, data);
+  }
 
-studentRegister(data: any): Observable<any> {
-  return this.http.post(`${this.baseUrl}/student/register`, data);
-}
+  studentRegister(data: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/student/register`, data);
+  }
   private storeToken(res: LoginResponse) {
     localStorage.setItem('token', res.token);
     localStorage.setItem('role', res.role);

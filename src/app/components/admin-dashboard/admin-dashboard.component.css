@@ -240,3 +240,76 @@ td button:last-child {
     opacity: 1;
   }
 }
+
+
+/* Center pagination */
+.pagination {
+  display: flex;
+  justify-content: center;   /* center horizontally */
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+
+/* Previous Button */
+.pagination button:first-child {
+  background-color: #ff9800;   /* Orange */
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Next Button */
+.pagination button:last-child {
+  background-color: #4caf50;   /* Green */
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Hover Effect */
+.pagination button:hover:not(:disabled) {
+  opacity: 0.85;
+  transform: scale(1.05);
+}
+
+/* Disabled State */
+.pagination button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Page Text */
+.pagination span {
+  font-weight: 600;
+  font-size: 14px;
+} 
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 5px rgba(25, 118, 210, 0.3);
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+}

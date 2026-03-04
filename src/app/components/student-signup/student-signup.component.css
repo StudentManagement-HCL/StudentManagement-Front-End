@@ -92,3 +92,8 @@ h3 { color: #456677; margin-bottom: 25px; font-weight: 500; }
 
 .login-link a { color: #456677; text-decoration: none; }
 .login-link a:hover { text-decoration: underline; }
+
+.error {
+  color: red;
+  font-size: 12px;
+}
