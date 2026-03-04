@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { AdminService } from 'src/app/services/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -36,8 +37,11 @@ export class AdminDashboardComponent implements OnInit {
   showToast = false;
   toastMessage = '';
 
-  constructor(private auth: AuthService, private adminService: AdminService) {}
-
+  constructor(
+    private auth: AuthService,
+    private adminService: AdminService,
+    private router: Router
+  ) {}
   ngOnInit() {
     this.name = this.auth.getName() || 'Admin';
   }
@@ -138,4 +142,11 @@ export class AdminDashboardComponent implements OnInit {
       this.showToast = false;
     }, 2500);
   }
+    ViewAdminProfile() {
+    // Navigate to the admin profile page
+    this.router.navigate(['/admin-profile']);
+  }
+
+
 }
+  

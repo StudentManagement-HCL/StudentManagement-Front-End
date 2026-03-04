@@ -1,0 +1,84 @@
+<div class="dashboard-wrapper">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <b>🎓 Student Management System</b>
+    </div>
+
+    <div class="navbar-right">
+      <button class="btn-logout">Logout</button>
+    </div>
+  </nav>
+
+  <!-- PAGE CONTENT -->
+  <div class="dashboard-content">
+
+    <!-- PROFILE CARD -->
+    <div class="welcome-card">
+
+      <h2>Admin Profile</h2>
+      <p>Manage your account details</p>
+
+    </div>
+
+    <div class="form-box">
+
+      <div *ngIf="adminProfile">
+
+        <!-- NAME -->
+        <div style="margin-bottom:20px">
+          <strong>Name :</strong>
+
+          <span *ngIf="!editMode">
+            {{ adminProfile.firstName }} {{ adminProfile.lastName }}
+          </span>
+
+          <span *ngIf="editMode">
+            <input [(ngModel)]="adminProfile.firstName" placeholder="First Name">
+            <input [(ngModel)]="adminProfile.lastName" placeholder="Last Name">
+          </span>
+        </div>
+
+        <!-- EMAIL -->
+        <div style="margin-bottom:20px">
+          <strong>Email :</strong>
+
+          <span *ngIf="!editMode">
+            {{ adminProfile.email }}
+          </span>
+
+          <span *ngIf="editMode">
+            <input [(ngModel)]="adminProfile.email" placeholder="Email">
+          </span>
+        </div>
+
+        <!-- PHONE -->
+        <div style="margin-bottom:20px">
+          <strong>Phone :</strong>
+
+          <span *ngIf="!editMode">
+            {{ adminProfile.phoneNumber }}
+          </span>
+
+          <span *ngIf="editMode">
+            <input [(ngModel)]="adminProfile.phoneNumber" placeholder="Phone Number">
+          </span>
+        </div>
+
+        <!-- BUTTON -->
+        <button *ngIf="!editMode" class="btn-card" (click)="editMode=true">
+          Edit Profile
+        </button>
+
+        <button *ngIf="editMode" class="btn-card" (click)="updateProfile()">
+          Save Changes
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
