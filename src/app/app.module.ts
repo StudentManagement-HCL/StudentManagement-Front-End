@@ -10,7 +10,6 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AdminSignupComponent } from './components/admin-signup/admin-signup.component';
-import { StudentSignupComponent } from './components/student-signup/student-signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
 
@@ -21,10 +20,8 @@ import { AdminProfileComponent } from './components/admin-profile/admin-profile.
     LoginComponent,
     AdminDashboardComponent,
     StudentDashboardComponent,
-    AdminSignupComponent,
-    StudentSignupComponent,
     AdminSignupComponent,   
-    StudentSignupComponent, AdminProfileComponent
+    AdminProfileComponent
 
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,BrowserAnimationsModule],
