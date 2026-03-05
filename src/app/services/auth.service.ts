@@ -26,9 +26,7 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/admin/register`, data);
   }
 
-  studentRegister(data: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/student/register`, data);
-  }
+  
   private storeToken(res: LoginResponse) {
     localStorage.setItem('token', res.token);
     localStorage.setItem('role', res.role);

@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent {
   email = '';
   password = '';
-  role: 'Admin' | 'Student' = 'Student';
+  role: 'Admin' | 'Student' = 'Admin';
   errorMessage = '';
   loading = false;
 
