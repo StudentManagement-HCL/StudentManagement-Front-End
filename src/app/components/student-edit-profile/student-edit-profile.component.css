@@ -1,0 +1,289 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.edit-wrapper {
+  min-height: 100vh;
+  background: #f4f7fb;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2f5d6a;
+  color: white;
+  padding: 0 40px;
+  height: 65px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.welcome-text {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.btn-back {
+  padding: 8px 18px;
+  background: white;
+  color: #2f5d6a;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-back:hover {
+  background: #e3f2fd;
+}
+
+/* ================= LAYOUT ================= */
+.edit-content {
+  padding: 40px;
+  max-width: 620px;
+  margin: auto;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+/* ================= CARD HEADER ================= */
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.card-icon {
+  font-size: 40px;
+}
+
+.card-header h2 {
+  color: #2f5d6a;
+  margin-bottom: 5px;
+  font-size: 1.4rem;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* ================= ALERT ================= */
+.alert {
+  padding: 10px 16px;
+  border-radius: 6px;
+  margin-bottom: 18px;
+  font-size: 0.9rem;
+}
+
+.alert-error {
+  background: #fff5f5;
+  color: #c53030;
+  border: 1px solid #feb2b2;
+}
+
+/* ================= READ-ONLY BOX ================= */
+.readonly-box {
+  background: #f2f6f8;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px dashed #ccc;
+  font-size: 0.92rem;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  color: #666;
+}
+
+.info-value {
+  color: #2f5d6a;
+  font-weight: 600;
+}
+
+/* ================= FORM ================= */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: #2f5d6a;
+  margin-bottom: 7px;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.3s;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #2f5d6a;
+  box-shadow: 0 0 5px rgba(47,93,106,0.2);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ================= SAVE BUTTON ================= */
+.btn-save {
+  width: 100%;
+  padding: 12px 25px;
+  background: #2f5d6a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: 0.3s;
+}
+
+.btn-save:hover:not(:disabled) {
+  background: #244a54;
+}
+
+.btn-save:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ================= SUCCESS CARD ================= */
+.success-card {
+  text-align: center;
+}
+
+.success-icon {
+  font-size: 3.5rem;
+  margin-bottom: 12px;
+}
+
+.success-card h2 {
+  font-size: 1.5rem;
+  color: #2f5d6a;
+  margin-bottom: 6px;
+}
+
+/* ================= UPDATED BOX ================= */
+.updated-box {
+  background: #e6f2f5;
+  border: 1px solid #b2d8e0;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 16px 0 24px;
+  text-align: left;
+}
+
+.updated-label {
+  font-weight: 700;
+  color: #2f5d6a;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed #b2d8e0;
+  font-size: 0.93rem;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  color: #666;
+}
+
+.detail-value {
+  color: #2f5d6a;
+  font-weight: 700;
+}
+
+/* ================= BUTTON GROUP ================= */
+.btn-group {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-edit-again {
+  flex: 1;
+  padding: 10px 22px;
+  background: white;
+  color: #2f5d6a;
+  border: 2px solid #2f5d6a;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-edit-again:hover {
+  background: #e6f2f5;
+}
+
+.btn-back-dash {
+  flex: 1;
+  padding: 10px 22px;
+  background: #2f5d6a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-back-dash:hover {
+  background: #244a54;
+}
