@@ -1,21 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { AdminService } from 'src/app/services/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
-  styleUrls: ['./admin-dashboard.component.css']
+  styleUrls: ['./admin-dashboard.component.css'],
 })
 export class AdminDashboardComponent implements OnInit {
-
   name: string = '';
   students: any[] = [];
+  paginatedStudents: any[] = [];
 
   showAddForm = false;
   showTable = false;
 
   editingId: number | null = null;
+
+  // 🔹 Pagination Variables
+  currentPage: number = 1;
+  itemsPerPage: number = 3;
+  totalPages: number = 0;
 
   student = {
     name: '',
@@ -25,7 +31,7 @@ export class AdminDashboardComponent implements OnInit {
     phone: '',
     city: '',
     state: '',
-    dob:''
+    dob: '',
   };
 
   showToast = false;
@@ -33,9 +39,9 @@ export class AdminDashboardComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private adminService: AdminService
+    private adminService: AdminService,
+    private router: Router
   ) {}
-
   ngOnInit() {
     this.name = this.auth.getName() || 'Admin';
   }
@@ -44,32 +50,57 @@ export class AdminDashboardComponent implements OnInit {
     this.auth.logout();
   }
 
+  // ✅ Get Students with Pagination Setup
   getStudents() {
     this.adminService.getStudents().subscribe((res: any) => {
       this.students = res;
       this.showTable = true;
       this.showAddForm = false;
+
+      this.currentPage = 1;
+      this.totalPages = Math.ceil(this.students.length / this.itemsPerPage);
+      this.updatePagination();
     });
   }
 
+  // ✅ Update Paginated Data
+  updatePagination() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.paginatedStudents = this.students.slice(startIndex, endIndex);
+  }
+
+  // ✅ Next Page
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updatePagination();
+    }
+  }
+
+  // ✅ Previous Page
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updatePagination();
+    }
+  }
+
   onSubmit(form: any) {
-
     if (this.editingId !== null) {
-
-      this.adminService.updateStudent(this.editingId, this.student)
+      this.adminService
+        .updateStudent(this.editingId, this.student)
         .subscribe(() => {
           this.showSuccess('Student updated successfully!');
           this.getStudents();
           this.resetForm(form);
         });
-
     } else {
-
-      this.adminService.AddStudent(this.student)
-        .subscribe(() => {
-          this.showSuccess('Student added successfully!');
-          this.resetForm(form);
-        });
+      this.adminService.AddStudent(this.student).subscribe(() => {
+        this.showSuccess('Student added successfully!');
+        this.getStudents(); // refresh table
+        this.resetForm(form);
+      });
     }
   }
 
@@ -84,7 +115,7 @@ export class AdminDashboardComponent implements OnInit {
       phone: '',
       city: '',
       state: '',
-      dob:''
+      dob: '',
     };
 
     this.editingId = null;
@@ -99,7 +130,7 @@ export class AdminDashboardComponent implements OnInit {
   deleteStudent(id: number) {
     this.adminService.deleteStudent(id).subscribe(() => {
       this.showSuccess('Student deleted successfully!');
-      this.getStudents();
+      this.getStudents(); // refresh with pagination
     });
   }
 
@@ -111,4 +142,11 @@ export class AdminDashboardComponent implements OnInit {
       this.showToast = false;
     }, 2500);
   }
+    ViewAdminProfile() {
+    // Navigate to the admin profile page
+    this.router.navigate(['/admin-profile']);
+  }
+
+
 }
+  

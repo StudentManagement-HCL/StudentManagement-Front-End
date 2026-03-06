@@ -6,11 +6,12 @@ import { StudentDashboardComponent } from './components/student-dashboard/studen
 import { StudentEditProfileComponent } from './components/student-edit-profile/student-edit-profile.component'; // ✅ add this
 import { authGuard } from './guards/auth.guard';
 import { AdminSignupComponent } from './components/admin-signup/admin-signup.component';
-
+import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'admin-signup', component: AdminSignupComponent },
+  { path: 'admin-signup', component: AdminSignupComponent },   
+  { path: 'admin-profile', component: AdminProfileComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [authGuard], data: { role: 'Admin' } },
   { path: 'student-dashboard', component: StudentDashboardComponent, canActivate: [authGuard], data: { role: 'Student' } },
   { path: 'student-edit-profile', component: StudentEditProfileComponent, canActivate: [authGuard], data: { role: 'Student' } }, // ✅ add this
