@@ -3,8 +3,10 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #f0f2f5;
+   background: linear-gradient(135deg, #eaf4f7 0%, #d0e8ed 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 
 .login-card {
   background: white;
@@ -14,6 +16,7 @@
   width: 380px;
   text-align: center;
 }
+
 
 h2 { color: #333; margin-bottom: 5px; }
 h3 { color: #666; margin-bottom: 20px; font-weight: normal; }
