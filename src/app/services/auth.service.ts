@@ -11,8 +11,8 @@ export class AuthService {
   private baseUrl = 'http://localhost:5035/api/Auth';
   private sessionTimeout: any;
   private warningTimeout: any;
-  private sessionDuration = 1 * 60 * 1000;    // 15 minutes
-  private warningBefore = 0.5 * 60 * 1000;        // warn 1 minute before expiry
+  private sessionDuration = 10 * 60 * 1000;    // 1 minutes
+  private warningBefore = 1 * 60 * 1000;        // warn 1/2 minute before expiry
 
   constructor(
     private http: HttpClient,
