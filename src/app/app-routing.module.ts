@@ -6,6 +6,8 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
 import { StudentViewProfileComponent } from './components/student-view-profile/student-view-profile.component';
+import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
+import { StudentEditProfileComponent } from './components/student-edit-profile/student-edit-profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -14,21 +16,33 @@ const routes: Routes = [
   {
     path: 'admin-dashboard',
     component: AdminDashboardComponent,
-    canActivate: [AuthGuard],        // ✅ guard applied
-    data: { role: 'Admin' }          // ✅ role check
+    canActivate: [AuthGuard],
+    data: { role: 'Admin' }
   },
   {
     path: 'student-dashboard',
     component: StudentDashboardComponent,
-    canActivate: [AuthGuard],        // ✅ guard applied
-    data: { role: 'Student' }        // ✅ role check
+    canActivate: [AuthGuard],
+    data: { role: 'Student' }
   },
   {
-  path: 'student-view-profile',
-  component: StudentViewProfileComponent,
-  canActivate: [AuthGuard],
-  data: { role: 'Student' }
-},
+    path: 'admin-profile',
+    component: AdminProfileComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'Admin' }
+  },
+  {
+    path: 'student-edit-profile',
+    component: StudentEditProfileComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'Student' }
+  },
+  {
+    path: 'student-view-profile',
+    component: StudentViewProfileComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'Student' }
+  },
   { path: '**', redirectTo: 'login' }
 ];
 

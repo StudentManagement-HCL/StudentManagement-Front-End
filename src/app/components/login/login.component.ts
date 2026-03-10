@@ -27,9 +27,10 @@ export class LoginComponent {
       : this.auth.studentLogin(credentials);
 
     loginCall.subscribe({
-      next: (res) => {
+      next: (res:any) => {
         this.loading = false;
-
+        localStorage.setItem("user",JSON.stringify(res));
+      
         // ✅ Sweet alert on login success
         Swal.fire({
           icon: 'success',
