@@ -18,14 +18,13 @@
       <p>Hello <strong>{{ name }}</strong></p>
     </div>
 
-    <div class="cards-row">
-      <div class="card">
-        <div class="card-icon">👨‍👦‍👦</div>
-        <div class="card-label">View Profile</div>
-        <div class="card-description">   
-        <p>Check your personal details</p>
-         </div>
-      </div>
+   <div class="card" (click)="goToViewProfile()" style="cursor: pointer;">
+  <div class="card-icon">👨‍👦‍👦</div>
+  <div class="card-label">View Profile</div>
+  <div class="card-description">
+    <p>Check your personal details</p>
+  </div>
+</div>
       <!-- edit profile card -->
             <div class="card" (click)="goToEditProfile()" style="cursor: pointer;">
         <div class="card-icon">📝</div>

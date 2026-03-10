@@ -5,6 +5,7 @@ import { AdminSignupComponent } from './components/admin-signup/admin-signup.com
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
+import { StudentViewProfileComponent } from './components/student-view-profile/student-view-profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -22,6 +23,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],        // ✅ guard applied
     data: { role: 'Student' }        // ✅ role check
   },
+  {
+  path: 'student-view-profile',
+  component: StudentViewProfileComponent,
+  canActivate: [AuthGuard],
+  data: { role: 'Student' }
+},
   { path: '**', redirectTo: 'login' }
 ];
 
