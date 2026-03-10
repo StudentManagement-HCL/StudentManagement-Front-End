@@ -5,6 +5,8 @@ import { AdminSignupComponent } from './components/admin-signup/admin-signup.com
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
+import { StudentEditProfileComponent } from './components/student-edit-profile/student-edit-profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -21,8 +23,18 @@ const routes: Routes = [
     component: StudentDashboardComponent,
     canActivate: [AuthGuard],        // ✅ guard applied
     data: { role: 'Student' }        // ✅ role check
+ },
+  { path: 'admin-profile', 
+    component: AdminProfileComponent, 
+    canActivate: [AuthGuard], 
+    data: { role: 'Admin' }
   },
-  { path: '**', redirectTo: 'login' }
+   { path: 'student-edit-profile', 
+    component: StudentEditProfileComponent, 
+    canActivate: [AuthGuard], 
+    data: { role: 'Student' } 
+  },
+ { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({
