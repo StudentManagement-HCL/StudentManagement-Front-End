@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-signup',
@@ -48,15 +49,27 @@ export class AdminSignupComponent {
     };
 
     this.auth.adminRegister(payload).subscribe({
-      next: (res: any) => {
-        this.loading = false;
-        this.successMessage = 'Admin registered successfully! Redirecting to login...';
-        setTimeout(() => this.router.navigate(['/login']), 2000);
-      },
+     next: (res: any) => {
+  this.loading = false;
+  Swal.fire({
+    icon: 'success',
+    title: 'Registered Successfully!',
+    text: 'Admin account created. Redirecting to login...',
+    timer: 1500,
+    showConfirmButton: false
+  }).then(() => {
+    this.router.navigate(['/login']);
+  });
+},
       error: (err) => {
-        this.loading = false;
-        this.errorMessage = err.error?.message || 'Registration failed. Try again.';
-      }
+  this.loading = false;
+  Swal.fire({
+    icon: 'error',
+    title: 'Registration Failed!',
+    text: err.error?.message || 'Something went wrong. Try again.',
+    confirmButtonColor: '#1976d2'
+  });
+}
     });
   }
 }
