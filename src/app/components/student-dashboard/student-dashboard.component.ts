@@ -15,6 +15,9 @@ export class StudentDashboardComponent implements OnInit {
   ngOnInit() {
     this.name = this.auth.getName() || 'Student';
   }
+  goToViewProfile() {
+  this.router.navigate(['/student-view-profile']);
+}
    goToEditProfile() {
     this.router.navigate(['/student-edit-profile']);
   }

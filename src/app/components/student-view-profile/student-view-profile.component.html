@@ -1,0 +1,134 @@
+<div class="view-wrapper">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-brand"><b>🎓 Student Management System</b></div>
+    <div class="navbar-right">
+      <span class="welcome-text">Student 👨‍🎓</span>
+      <button class="btn-back" (click)="goBack()">← Back to Dashboard</button>
+    </div>
+  </nav>
+
+  <div class="view-content">
+
+    <!-- Loading State -->
+    <div class="card loading-card" *ngIf="loading">
+      <p class="loading-text">⏳ Loading profile...</p>
+    </div>
+
+    <!-- Error State -->
+    <div class="card" *ngIf="errorMsg && !loading">
+      <div class="alert alert-error">⚠️ {{ errorMsg }}</div>
+    </div>
+
+    <!-- Profile Card -->
+    <div class="card profile-card" *ngIf="profile && !loading">
+
+      <!-- Card Header -->
+      <div class="card-header">
+        <div class="avatar">
+          <span class="avatar-icon">👨‍🎓</span>
+        </div>
+        <div class="header-info">
+          <h2>{{ profile.name }}</h2>
+          <p class="subtitle">{{ profile.department }} Department</p>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="divider"></div>
+
+      <!-- Profile Details -->
+      <div class="details-section">
+
+        <h3 class="section-title">Personal Information</h3>
+
+        <div class="info-grid">
+
+          <div class="info-item">
+            <span class="info-icon">👤</span>
+            <div class="info-text">
+              <span class="info-label">Full Name</span>
+              <span class="info-value">{{ profile.name }}</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">📅</span>
+            <div class="info-text">
+              <span class="info-label">Date of Birth</span>
+              <span class="info-value">{{ profile.dob | date:'dd MMM yyyy' }}</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">🎂</span>
+            <div class="info-text">
+              <span class="info-label">Age</span>
+              <span class="info-value">{{ profile.age }} years</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">🏫</span>
+            <div class="info-text">
+              <span class="info-label">Department</span>
+              <span class="info-value">{{ profile.department }}</span>
+            </div>
+          </div>
+
+        </div>
+
+        <h3 class="section-title">Contact Information</h3>
+
+        <div class="info-grid">
+
+          <div class="info-item">
+            <span class="info-icon">📧</span>
+            <div class="info-text">
+              <span class="info-label">Email</span>
+              <span class="info-value">{{ profile.email }}</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">📱</span>
+            <div class="info-text">
+              <span class="info-label">Phone</span>
+              <span class="info-value">{{ profile.phone }}</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">🏙️</span>
+            <div class="info-text">
+              <span class="info-label">City</span>
+              <span class="info-value">{{ profile.city }}</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">🗺️</span>
+            <div class="info-text">
+              <span class="info-label">State</span>
+              <span class="info-value">{{ profile.state }}</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Divider -->
+      <div class="divider"></div>
+
+      <!-- Action Buttons -->
+      <div class="btn-group">
+        <button class="btn-edit" (click)="goToEditProfile()">✏️ Edit Profile</button>
+        <button class="btn-back-dash" (click)="goBack()">← Back to Dashboard</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>

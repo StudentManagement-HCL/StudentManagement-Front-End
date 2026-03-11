@@ -15,6 +15,7 @@ import { AdminProfileComponent } from './components/admin-profile/admin-profile.
 import { StudentEditProfileComponent } from './components/student-edit-profile/student-edit-profile.component';
 
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { StudentViewProfileComponent } from './components/student-view-profile/student-view-profile.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     StudentDashboardComponent,
     AdminSignupComponent,
     AdminProfileComponent,
-    StudentEditProfileComponent
+    StudentEditProfileComponent,
+    StudentViewProfileComponent
   ],
   imports: [
     BrowserModule,
